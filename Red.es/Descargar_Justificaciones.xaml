@@ -1,0 +1,261 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Descargar_Justificaciones" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_ArchivoDescargas" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1488,2856</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Descargar_Justificaciones_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Descargar_Justificaciones" sap:VirtualizedContainerService.HintSize="650,2791" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="GuardarComo" />
+      <Variable x:TypeArguments="scg:List(s:DateTime)" Name="ListaFechas" />
+      <Variable x:TypeArguments="s:DateTime" Name="fechaEntrada" />
+      <Variable x:TypeArguments="x:Int32" Name="IndexFechas" />
+      <Variable x:TypeArguments="s:DateTime" Name="FechaFinal" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Init Log Message" sap:VirtualizedContainerService.HintSize="588,181" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Descargando justificaciones&quot;]" />
+    <ui:RetryScope DisplayName="Retry Scope descargar justificaciones" sap:VirtualizedContainerService.HintSize="588,2522" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Cint(in_Config(&quot;Descargar_Justificaciones_Retry_Iteraciones&quot;).ToString)]" RetryInterval="[TimeSpan.Parse(in_Config(&quot;Descargar_Justificaciones_Delay&quot;).ToString)]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Kit Digital" sap:VirtualizedContainerService.HintSize="546,2210" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1993" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="codigoJustificacion" />
+                    <Variable x:TypeArguments="x:String" Name="estadoJustificacion" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Fecha de creación'" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Entre" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>Igual a</x:String>
+                        <x:String>Desde</x:String>
+                        <x:String>hasta</x:String>
+                        <x:String>Entre</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/busqueda-justificaciones" CvElementArea="624, 675, 159, 34" CvType="InputBox" DesignTimeRectangle="626, 676, 156, 31" DesignTimeScaleFactor="0.800000011920929" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='operadorFechaCreacion' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='operadorFechaCreacion' tag='SELECT' type='' class='form-select' aaname='' /&gt;" Guid="a3310f45-ca54-4562-bdbd-66c8dcec667a" ImageBase64="" InformativeScreenshot="c73817bfcec9bf64ed117695228f6a2c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="449, 679, 102, 13" CvTextArgument="Fecha de creacion" CvType="Text" DesignTimeRectangle="440, 676, 176, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Fecha de creación' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Fecha de creación' tag='LABEL' type='' class='col-lg-2 col-md-3' check:innerText='Fecha de creación' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Fecha de creación'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Text="[in_TransactionItem.SpecificContent(&quot;FechaInicio&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/busqueda-justificaciones" CvTextArea="811, 685, 75, 15" CvTextArgument="dd/mm/aaaa" CvType="Text" DesignTimeRectangle="802, 676, 156, 31" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='fechaCreacion' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='fechaCreacion' tag='INPUT' type='date' class='form-control' aaname='Fecha de creación' /&gt;" Guid="35635853-e9a0-4596-be1a-fb3b30a724c0" InformativeScreenshot="ee0066547a1ee755deba044fe1ae34f2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="449, 679, 102, 13" CvTextArgument="Fecha de creacion" CvType="Text" DesignTimeRectangle="440, 676, 176, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Fecha de creación' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Fecha de creación' tag='LABEL' type='' class='col-lg-2 col-md-3' check:innerText='Fecha de creación' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'INPUT fechaCreacionInte…'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Text="[in_TransactionItem.SpecificContent(&quot;FechaFin&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/busqueda-justificaciones" CvTextArea="1012, 685, 76, 15" CvTextArgument="dd/mm/aaaa" CvType="Text" DesignTimeRectangle="1003, 676, 157, 31" DesignTimeScaleFactor="0.800000011920929" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='fechaCreacionIntervaloFin' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='fechaCreacionIntervaloFin' tag='INPUT' type='date' class='form-control' aaname='y' /&gt;" Guid="531345bc-419c-46c8-a06f-34913d9f7963" InformativeScreenshot="4d151bc5fb1ee5ac33027896b3bf62ce.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive" />
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Buscar'" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/busqueda-justificaciones" DesignTimeRectangle="1532, 761, 129, 60" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;webctrl id='advancedSearch' tag='BUTTON' aaname='Buscar' /&gt;" FuzzySelectorArgument="&lt;webctrl id='advancedSearch' tag='BUTTON' aaname='Buscar' type='submit' class='btn btn-primary me-md-2' check:text='Buscar' /&gt;" Guid="675667bb-402c-4896-a701-617cb18b2567" ImageBase64="" InformativeScreenshot="d21c556dbb7f1c5fd6c160d718a76c52.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'CSV'" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/busqueda-justificaciones" DesignTimeRectangle="1145, 431, 66, 40" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='csvFile' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='csvFile' tag='BUTTON' type='button' class='btn btn-secondary buttons-csv buttons-html5' aaname='                     CSV                                      ' check:innerText='CSV' /&gt;" Guid="49e1662e-4e02-4fe1-a177-7b2dbc782c37" ImageBase64="" InformativeScreenshot="2ed86f964fd0fed7a3728f9f80d74d23.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NCheckState DisplayName="Check App State '¿Qué quiere'" EnableIfExists="False" EnableIfNotExists="False" Exists="[GuardarComo]" sap:VirtualizedContainerService.HintSize="450,217" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="6a1c01a9-3a5c-4ddd-9142-e7cf6d90131a" Timeout="180" Version="V3">
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="7, 47, 348, 50" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;ctrl name='Descargas' role='document' /&gt;&lt;ctrl name='*.csv' role='outline item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Descargas' role='document' /&gt;&lt;ctrl name='Download item' role='outline item' automationid='' check:text='Download item' /&gt;" Guid="2e276904-b618-4959-976a-8261ee4ce40f" InformativeScreenshot="09c785b1dfe8af5a9d7e7f716600189f.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_2' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <If Condition="[GuardarComo]" DisplayName="If Guardar Como Exiiste" sap:VirtualizedContainerService.HintSize="450,582" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Misc\Guardar_Descargas.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Misc\Guardar_Descargas.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_RutaDescargas">[in_ArchivoDescargas]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Throw DisplayName="Throw SE" Exception="[New SystemException(&quot;Error descargando justificacion&quot;)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-3448, -217, 3456, 1408" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHMSURBVDhPY7genPH/pKghXnxKwvj/RavA/086pv1nQAenZcz+nxIHKiISn9d3///l4jWEQW837Pj/sK4bL75f3PT/skPw/1NSQEOA+JyWPaZLiAFvVm/+f1bN4v8ZeaP/N8JSyDPk7YYtQEOMwPjzqTP/GR63d/y/4umDgqFqGd6s3/D/vLH5/3fbd6DYdjM+6f85faP/j1rb/zNcsDL9f97CCAWDFH08fvT/BSsTMP/ppH4UA16vXvH/vDnQG3GR/xleLp7z/25B2v87+Sn/LzkZg/Gnk0f+X/GyBrOvhbhh+PXz+dP/LwLlrgY6o8pd9QUKAvH1MFsIHWqLoRkEvl4+C5a/EYVmwI0ooGAkFMeY/f9y6QRWA97vXQtWc68sHFX+drrRfxh+Ma8Gq2YQeDohE6zm5aImVDUPygz+PyhF4A97ZmIY8u3mEaCcIVj+2/UjqPJPW/X+g/Dzic5gGoQ/7u2CK/px/9j/Zz1WYPGXc8IwXfhqmuZ/EAax360IBLNB+OPWlP8fNsbC+a9nQaIaA3xcqfgfhKFchi+7g8F8ZPxprf7/38/QnA4Dv044//951BJF8tfZqP8/90j+/3lA6/+vK6VoGhkYAHoPiQxtxh4KAAAAAElFTkSuQmCC" InformativeScreenshot="bab58986919d06200c569187c3638779.jpg" Selector="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" Title="Kit Digital" Url="https://portal.gestion.sedepkd.red.gob.es/*" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean">
+          <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True Botón Guardar Como " Expression="[GuardarComo]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        </ActivityFunc>
+      </ui:RetryScope.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RetryScope>
+  </Sequence>
+</Activity>

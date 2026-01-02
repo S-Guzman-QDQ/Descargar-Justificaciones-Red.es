@@ -1,0 +1,261 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Abrir_Red_es" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_LoginSuccess" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1153.3333333333333,2914.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Abrir_Red_es_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Abrir_Red_es" sap:VirtualizedContainerService.HintSize="880,2850" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Init Log Message" sap:VirtualizedContainerService.HintSize="818,184.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Abriendo Red.es&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Página Principal - Clave" sap:VirtualizedContainerService.HintSize="818,2577.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" OpenMode="Always" ScopeGuid="e66f235a-6eff-474e-b12e-e9b6a6a38417" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="784,2335.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'Language .Changing'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="722,929.3333333333334" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Language" sap:VirtualizedContainerService.HintSize="512.6666666666666,668" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strLanguage" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text 'Language .Changing'" sap:VirtualizedContainerService.HintSize="450.6666666666667,199.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" TextString="[strLanguage]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://pasarela.clave.gob.es/Proxy2/ServiceProvider" CvElementArea="3083, 109, 87, 31" CvType="InputBox" DesignTimeRectangle="3085, 111, 84, 28" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='language-select' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='language-select' tag='SELECT' type='' class='' aaname=' Language .Changing the language will automatically reload the page to the selected language.                                 ' /&gt;" Guid="ce04e5eb-fd4b-4d30-9eca-01b7bd09ae4e" ImageBase64="" InformativeScreenshot="473889e48d0097dcdb6b39b31324057f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Página Principal - Clave' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="3000, 116, 73, 18" CvTextArgument="Language" CvType="Text" DesignTimeRectangle="3001, 116, 84, 17" ElementType="Text" FullSelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' type='' class='' aaname=' Language                                  ' check:innerText='Language &amp;#xD;&amp;#xA;.Changing the language will automatically reload the page to the selected language.' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <ui:IfElseIf DisplayName="Else If Language equals English" sap:VirtualizedContainerService.HintSize="451,378" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                    <ui:IfElseIf.ConditionBlocks>
+                      <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                        <ui:IfElseIfBlock BlockType="If" Condition="[Not strLanguage.Equals(&quot;Español&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                          <ui:IfElseIfBlock.Then>
+                            <uix:NSelectItem DisplayName="NSelectItem Español" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Español" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" Version="V3">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="6">
+                                  <x:String>Español</x:String>
+                                  <x:String>Català</x:String>
+                                  <x:String>Euskera</x:String>
+                                  <x:String>Galego</x:String>
+                                  <x:String>Valencià</x:String>
+                                  <x:String>English</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable BrowserURL="https://pasarela.clave.gob.es/Proxy2/ServiceProvider" CvElementArea="3084, 109, 87, 31" CvType="InputBox" DesignTimeRectangle="3085, 111, 84, 28" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='language-select' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='language-select' tag='SELECT' type='' class='' aaname=' Language .Changing the language will automatically reload the page to the selected language.                                 ' /&gt;" Guid="0bb18fca-9cc5-4121-8138-635bcd819d09" ImageBase64="" InformativeScreenshot="24584416aed8f1b242b7b2c9aef2d37b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Página Principal - Clave' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CvTextArea="3000, 116, 73, 18" CvTextArgument="Language" CvType="Text" DesignTimeRectangle="3001, 116, 84, 17" ElementType="Text" FullSelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' type='' class='' aaname=' Language                                  ' check:innerText='Language &amp;#xD;&amp;#xA;.Changing the language will automatically reload the page to the selected language.' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                            </uix:NSelectItem>
+                          </ui:IfElseIfBlock.Then>
+                        </ui:IfElseIfBlock>
+                      </sc:BindingList>
+                    </ui:IfElseIf.ConditionBlocks>
+                  </ui:IfElseIf>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://pasarela.clave.gob.es/Proxy2/ServiceProvider" CvElementArea="3083, 109, 87, 31" CvType="InputBox" DesignTimeRectangle="3085, 111, 84, 28" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='language-select' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='language-select' tag='SELECT' type='' class='' aaname=' Language .Changing the language will automatically reload the page to the selected language.                                 ' /&gt;" Guid="f710f4fa-9bd2-472c-b6c2-0817a9dc0ef5" InformativeScreenshot="473889e48d0097dcdb6b39b31324057f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Página Principal - Clave' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="3000, 116, 73, 18" CvTextArgument="Language" CvType="Text" DesignTimeRectangle="3001, 116, 84, 17" ElementType="Text" FullSelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='languageLabel' tag='LABEL' type='' class='' aaname=' Language                                  ' check:innerText='Language &amp;#xD;&amp;#xA;.Changing the language will automatically reload the page to the selected language.' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <Sequence DisplayName="Acceso DNI" sap:VirtualizedContainerService.HintSize="722,933.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="Language" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Acceso DNIe'" sap:VirtualizedContainerService.HintSize="434,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://pasarela.clave.gob.es/Proxy2/ServiceProvider" CvElementArea="682, 742, 491, 74" CvTextArea="756, 768, 344, 19" CvTextArgument="Acceso DNle / Certificado electronico" CvType="Button" DesignTimeRectangle="759, 768, 341, 25" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Acceso DNIe / Certificado electrónico' parentid='ID_main' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Acceso DNIe / Certificado electrónico' parentid='ID_main' tag='SPAN' type='' class='' check:innerText='Acceso DNIe / Certificado electrónico' /&gt;" Guid="68fa215a-db31-449e-b550-c60bbd295fd1" InformativeScreenshot="9c31916b961eec17c4c149932850fb87.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Página Principal - Clave' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CvElementArea="682, 742, 491, 74" CvTextArea="756, 768, 344, 19" CvTextArgument="Acceso DNle / Certificado electronico" CvType="Button" DesignTimeRectangle="687, 746, 485, 69" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='                                             Acceso DNIe / Certi*' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                             Acceso DNIe / Certi*' tag='BUTTON' type='' class='idp-button' check:innerText='Acceso DNIe / Certificado electrónico&amp;#xD;&amp;#xA;Acceso DNIe / Certificado electrónico' /&gt;" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Cl@ve" sap:VirtualizedContainerService.HintSize="434,418.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Never" ScopeGuid="ca496baf-1f84-47a2-94aa-948cfa55e3dd" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '46835819E AGAR'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ca496baf-1f84-47a2-94aa-948cfa55e3dd" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1525, 235, 389, 84" DesignTimeScaleFactor="1" ElementType="List" FullSelectorArgument="&lt;ctrl name='Seleccionar un certificado para la autenticación' role='dialog' /&gt;&lt;ctrl name='Seleccionar de una lista de certificados' role='table' /&gt;&lt;ctrl role='list' idx='2' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Seleccionar un certificado para la autenticación' role='dialog' /&gt;&lt;ctrl name='Seleccionar de una lista de certificados' role='table' /&gt;&lt;ctrl name='50722981T MARIA ROCIO SOBRINI (R: A81745002), AC Representación,*' role='list' automationid='' /&gt;" Guid="2d0fcd9b-7f85-4cbb-8013-33693c1a171e" InformativeScreenshot="92a7c28dcb50a3d94611187199df6a37.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Cl@ve' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVOSURBVFhH7Zd/TNR1GMe/92vAycF5iAR4Ip4YBh5KKHAHmD9giEAiMFJ+l9JxxXEyOEAl9dBQFPAXEhr5a5Qm1eZScc5qa5orW9NWaZtz1fqj6azWirlV777Pc911h+ctJ7b+8Lb3Pt8fz/N8Xp/P83w+n+8J/4PfAQjCkKhBhAh7MSzE40NhOrfX8iKBXwTgu4ckMfbfEIPixQFECFvwjmQGzkh03F4uDGPDP758OKLYjwDGHGDkisTrc28aUwCn3dEuz3tfemCAP687RvzzpxKcOyTDgU45irOV6O+Q48JRGT+n92Tnzf+BACgodUKd1VRKuD21T4F5KRoXTLNV4YLxBnEXgG7KJty+FoCRG3KXRjs5RaNbVSLD+XVKtBuC0W/UYFg3GZWGKG67DWp0ZqnxsV2Jhmop24+O4QGg9OtFzHQ77kAO/C6+JIkbxWgnknPqTbly7BCmsBpCQrBVFYGmuQHY5R/O9x2Clt+RnbdUuACSnmjHhSPRsJtzcPsnpU8ACuLUN+8LqE/xR1ZwELIj/VEw0x9leke7aJqCn9ca/djOmUp3CBeAblIXd15VWH5PAHJ0jpo6+f6MDLgl4IfLAkqLBehmCphjEJAZJ2C5eJ0nqmyJFDc/krDd18MCkvUCijIdxUnx3FJA58Egp2BkRHFPAHKc/6SAhKmOgNdfV+A9cyAOLw5EZUgwsmXjkKmZAuv8LJiXpKGtKRbvHknG58Mato8KE9jfC4CjCH0BkMixrtSPR/HtJwKu1I7n1bIhaCK6wkN59XSn5qJhfRsarQ14bn45TNV2vLXfyDNBS5Rm5S6A8Al7/hUAaff2ciwvXYbfrkpwdbUar0mmwpInQdMyKQ75T2IAc1UtbEmV2PyUBfV163gWyLftpTqYazJcsVwA105okWs0Qzu5w2cKSIM7ymEtyselg1JcXB7CANutUqxZqcCr8jDsMeajvrkVWwts6FnaipbmdhzdkYqvDknR+WK1WGsZrhXhAuhuzEVKXItPAHI6W61C/wwd+hKi8WZSKI6polkbxA2nZZWKl589PB12SyMXdE+mDR1rtmBbThbeNqrRPycGu6ZH4WSFynMGHB8kvlNAU35sgRIbC59HVUUpTnbKuAZo2m36KDQkxKJCG4XQx8tQq01kCLNpNVobO7kGzrVLYG9bg7LkxVy0owCoCAd5J/SVAoLo31wMm3YJThcH4uJuBVoDw9AaquHRzwrJgHRuGhZFpqPXYOSR241ZOPHyRAwtDUB7fBFsFQbvq0Ct2olZ+nU+AS61jMPeqERs0sfzPkB10BLj2Gz6ZgehcvIsJEbk8AwcT5fzjB0xBOCsyY9XwSsL07EtNB7nreM8AWKjt+GLY4+hty3D50Z02iKHvaYGFlspj+Kz/TIGoN2QzoLW2f5YHxGEN1LHY6BIzaJrAiD/3fvW4tmsbAyJS9kDgJYh7YR1VSX48Y4bgCgnAIk6Heg1wfLCCr52zoATgM6BjbMDcGKBBnsLJngAUPp2dTWj0ZLpLQWOnZBq4OYFJVc8GVHrDkBOO9dOhKlE45qBhgi1BwAVJFX8cfEkJB1ODOXUkb1tZSSvFme8UUXo+3uAOj81EIykpGlITdahf2sYfr0ow0YxzytjA7gGrOlTUZubg159HC9T6pxEdmSvT9CxL8WhuPcFQC0FSVucj4VPL8WGlgSGouLqq5ehqzIOplXPYF5mGqpKC9FXkITBFSrHoSX60rlAfuR/sEd7/wD3EkGQKMc3Pgjig4dauidfeufNjzQmAO5ywvjq1F1jDnC/egTgBvDPv2Pq+D/7d3xLwF+FGBq8wBfWlAAAAABJRU5ErkJggg==" InformativeScreenshot="4de21849a9c7fb049194ee3b9ce4c5c0.jpg" Selector="&lt;html app='msedge.exe' title='Cl@ve' /&gt;" Title="Página Principal - Clave" Url="https://pasarela.clave.gob.es/Proxy2/ServiceRedirect" />
+                </uix:NApplicationCard.TargetApp>
+              </uix:NApplicationCard>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Aceptar'" sap:VirtualizedContainerService.HintSize="434,184.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="1001, 506, 119, 48" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Seleccionar un certificado para la autenticación' role='dialog' /&gt;&lt;ctrl name='Aceptar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Seleccionar un certificado para la autenticación' role='dialog' /&gt;&lt;ctrl name='Aceptar' role='push button' automationid='' check:fulltext='Aceptar' /&gt;" Guid="d0ff0105-2194-44d6-b237-3fa08d399566" InformativeScreenshot="216e0c1c270063a85ebd0e978c2fc18d.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Cl@ve y 3 páginas más - Trabajo: Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+            <uix:NCheckState DisplayName="Check App State 'Justificaciones en'" Exists="[out_LoginSuccess]" sap:VirtualizedContainerService.HintSize="722,385" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e66f235a-6eff-474e-b12e-e9b6a6a38417" Timeout="10" Version="V3">
+              <uix:NCheckState.IfExists>
+                <ui:LogMessage DisplayName="Success Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Acceso a Red.es exitoso&quot;]" />
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V3" />
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://portal.gestion.sedepkd.red.gob.es/justificaciones/tic/" DesignTimeRectangle="93, 395, 1674, 57" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' aaname='Justificaciones en elaboración' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' aaname='Justificaciones en elaboración' type='' class='' check:text='Justificaciones en elaboración' /&gt;" Guid="6d6a1a46-d20a-4056-b06a-5c1ad26050c4" ImageBase64="" InformativeScreenshot="936251c51a496616be1d4f847f7cc6d4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Kit Digital' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V3" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAVOSURBVFhH7Zd/TNR1GMe/92vAycF5iAR4Ip4YBh5KKHAHmD9giEAiMFJ+l9JxxXEyOEAl9dBQFPAXEhr5a5Qm1eZScc5qa5orW9NWaZtz1fqj6azWirlV777Pc911h+ctJ7b+8Lb3Pt8fz/N8Xp/P83w+n+8J/4PfAQjCkKhBhAh7MSzE40NhOrfX8iKBXwTgu4ckMfbfEIPixQFECFvwjmQGzkh03F4uDGPDP758OKLYjwDGHGDkisTrc28aUwCn3dEuz3tfemCAP687RvzzpxKcOyTDgU45irOV6O+Q48JRGT+n92Tnzf+BACgodUKd1VRKuD21T4F5KRoXTLNV4YLxBnEXgG7KJty+FoCRG3KXRjs5RaNbVSLD+XVKtBuC0W/UYFg3GZWGKG67DWp0ZqnxsV2Jhmop24+O4QGg9OtFzHQ77kAO/C6+JIkbxWgnknPqTbly7BCmsBpCQrBVFYGmuQHY5R/O9x2Clt+RnbdUuACSnmjHhSPRsJtzcPsnpU8ACuLUN+8LqE/xR1ZwELIj/VEw0x9leke7aJqCn9ca/djOmUp3CBeAblIXd15VWH5PAHJ0jpo6+f6MDLgl4IfLAkqLBehmCphjEJAZJ2C5eJ0nqmyJFDc/krDd18MCkvUCijIdxUnx3FJA58Egp2BkRHFPAHKc/6SAhKmOgNdfV+A9cyAOLw5EZUgwsmXjkKmZAuv8LJiXpKGtKRbvHknG58Mato8KE9jfC4CjCH0BkMixrtSPR/HtJwKu1I7n1bIhaCK6wkN59XSn5qJhfRsarQ14bn45TNV2vLXfyDNBS5Rm5S6A8Al7/hUAaff2ciwvXYbfrkpwdbUar0mmwpInQdMyKQ75T2IAc1UtbEmV2PyUBfV163gWyLftpTqYazJcsVwA105okWs0Qzu5w2cKSIM7ymEtyselg1JcXB7CANutUqxZqcCr8jDsMeajvrkVWwts6FnaipbmdhzdkYqvDknR+WK1WGsZrhXhAuhuzEVKXItPAHI6W61C/wwd+hKi8WZSKI6polkbxA2nZZWKl589PB12SyMXdE+mDR1rtmBbThbeNqrRPycGu6ZH4WSFynMGHB8kvlNAU35sgRIbC59HVUUpTnbKuAZo2m36KDQkxKJCG4XQx8tQq01kCLNpNVobO7kGzrVLYG9bg7LkxVy0owCoCAd5J/SVAoLo31wMm3YJThcH4uJuBVoDw9AaquHRzwrJgHRuGhZFpqPXYOSR241ZOPHyRAwtDUB7fBFsFQbvq0Ct2olZ+nU+AS61jMPeqERs0sfzPkB10BLj2Gz6ZgehcvIsJEbk8AwcT5fzjB0xBOCsyY9XwSsL07EtNB7nreM8AWKjt+GLY4+hty3D50Z02iKHvaYGFlspj+Kz/TIGoN2QzoLW2f5YHxGEN1LHY6BIzaJrAiD/3fvW4tmsbAyJS9kDgJYh7YR1VSX48Y4bgCgnAIk6Heg1wfLCCr52zoATgM6BjbMDcGKBBnsLJngAUPp2dTWj0ZLpLQWOnZBq4OYFJVc8GVHrDkBOO9dOhKlE45qBhgi1BwAVJFX8cfEkJB1ODOXUkb1tZSSvFme8UUXo+3uAOj81EIykpGlITdahf2sYfr0ow0YxzytjA7gGrOlTUZubg159HC9T6pxEdmSvT9CxL8WhuPcFQC0FSVucj4VPL8WGlgSGouLqq5ehqzIOplXPYF5mGqpKC9FXkITBFSrHoSX60rlAfuR/sEd7/wD3EkGQKMc3Pgjig4dauidfeufNjzQmAO5ywvjq1F1jDnC/egTgBvDPv2Pq+D/7d3xLwF+FGBq8wBfWlAAAAABJRU5ErkJggg==" InformativeScreenshot="c1783d8a3cc2d312d5abee925f2e3c42.jpg" Selector="&lt;html app='msedge.exe' title='Página Principal - Clave' /&gt;" Title="Página Principal - Clave" Url="[in_Config(&quot;Red.es_URL&quot;).ToString]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
